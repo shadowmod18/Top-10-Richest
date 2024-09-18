@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Richest People in the World</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://i.pinimg.com/originals/0c/63/12/0c6312f0e839f8277207117818be342e.jpg'); /* Lien vers l'image de fond */
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: slideIn 1s ease-in-out;
+            color: #FFD700; /* Couleur or */
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: #FFD700;
+            bottom: -10px;
+            left: 25%;
+            animation: expand 1s ease-in-out;
+        }
+        .person {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s, background 0.3s;
+            animation: fadeInUp 1s ease-in-out;
+            cursor: pointer;
+        }
+        .person:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .person img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s;
+        }
+        .person:hover img {
+            transform: rotate(360deg);
+        }
+        .person-info {
+            flex-grow: 1;
+            margin-left: 10px;
+            text-align: left;
+        }
+        .person-info h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #FFD700;
+            animation: textGlow 1.5s infinite alternate;
+        }
+        .person-info p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+        .person-number {
+            font-size: 1.5em;
+            color: #FFD700;
+            margin-right: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .modal-content {
+            background-color: #333;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            animation: slideIn 0.5s ease-in-out;
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes expand {
+            from { width: 0; }
+            to { width: 50%; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700; }
+            to { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700; }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .person {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .person img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top 10 Richest People in the World</h1>
+        <div class="person" onclick="openModal('elonModal')">
+            <span class="person-number">1</span>
+            <img src="https://bookyourcelebs.com/wp-content/uploads/2017/01/Elon-Musk-300x300.jpg" alt="Elon Musk">
+            <div class="person-info">
+                <h2>Elon Musk</h2>
+                <p>$244.9 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('bernardModal')">
+            <span class="person-number">2</span>
+            <img src="https://th.bing.com/th/id/R.05d0109308fe9de32a3a93713a790358?rik=IgKddBKF%2byvUCg&riu=http%3a%2f%2fmeshworth.com%2fwp-content%2fuploads%2f2022%2f02%2fbernard-arnault-family.jpg&ehk=5iV7mmcSyxJ%2fP525ntSxxWOH7rXY%2bYkhEIRLU9vR00g%3d&risl=&pid=ImgRaw&r=0" alt="Bernard Arnault">
+            <div class="person-info">
+                <h2>Bernard Arnault</h2>
+                <p>$201.1 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('orgitoModal')">
+            <span class="person-number">3</span>
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=6fe109d77e&attid=0.1&permmsgid=msg-f:1810522257455154743&th=192044668d8d8637&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ-Tjb5DoZvGQf-bUbmzQm7r2PB1PQ2kLUd0S2JSGmCIqXsyHg-oHHRrd2o0T8xGJ3U7Butrk5b5HA0kkPXYFHOFiCZSdg4efdJgFl0r1jC8ZMLQmIESrq7K6N4&disp=emb" alt="Orgito Perkola">
+            <div class="person-info">
+                <h2>Orgito Perkola</h2>
+                <p>$194.6 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('jeffModal')">
+            <span class="person-number">4</span>
+            <img src="https://th.bing.com/th/id/OIP.4KR_BKf9jbbDBFDiQ5lGYgHaHa?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="Jeff Bezos">
+            <div class="person-info">
+                <h2>Jeff Bezos</h2>
+                <p>$172.2 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('billModal')">
+            <span class="person-number">5</span>
+            <img src="https://th.bing.com/th/id/OIP.r_qgxD6rkQQ0RxyBlhXpAAAAAA?rs=1&pid=ImgDetMain" alt="Bill Gates">
+            <div class="person-info">
+                <h2>Bill Gates</h2>
+                <p>$134.1 Billion</p>
+            </div>
+        </div>
+               <div class="person" onclick="openModal('warrenModal')">
+            <span class="person-number">6</span>
+            <img src="https://pbs.twimg.com/profile_images/934907110621679616/v9NAVtws_400x400.jpg" alt="Warren Buffett">
+            <div class="person-info">
+                <h2>Warren Buffett</h2>
+                <p>$118.1 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('larryModal')">
+            <span class="person-number">7</span>
+            <img src="https://cv-images.clickhole.com/originals/j9uha2v5rtf0vbsicjzc.jpg" alt="Larry Page">
+            <div class="person-info">
+                <h2>Larry Page</h2>
+                <p>$116.1 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('sergeyModal')">
+            <span class="person-number">8</span>
+            <img src="https://specials-images.forbesimg.com/imageserve/5ba418f34bbe6f79516f45ce/416x416.jpg?background=000000&cropX1=351&cropX2=3365&cropY1=11&cropY2=3025" alt="Sergey Brin">
+            <div class="person-info">
+                <h2>Sergey Brin</h2>
+                <p>$114.1 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('markModal')">
+            <span class="person-number">9</span>
+            <img src="https://th.bing.com/th/id/OIP.o2JvEgJpd_q2OwxgcnLktQAAAA?rs=1&pid=ImgDetMain" alt="Mark Zuckerberg">
+            <div class="person-info">
+                <h2>Mark Zuckerberg</h2>
+                <p>$112.1 Billion</p>
+            </div>
+        </div>
+        <div class="person" onclick="openModal('steveModal')">
+            <span class="person-number">10</span>
+            <img src="https://netstorage-briefly.akamaized.net/images/c7e32316aecf3e29.jpg?imwidth=900" alt="Steve Ballmer">
+            <div class="person-info">
+                <h2>Steve Ballmer</h2>
+                <p>$110.1 Billion</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="elonModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('elonModal')">×</span>
+            <img src="https://bookyourcelebs.com/wp-content/uploads/2017/01/Elon-Musk-300x300.jpg" alt="Elon Musk">
+            <h2>Elon Musk</h2>
+            <p>Details about Elon Musk...</p>
+        </div>
+    </div>
+    <div id="bernardModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bernardModal')">×</span>
+            <img src="https://th.bing.com/th/id/R.05d0109308fe9de32a3a93713a790358?rik=IgKddBKF%2byvUCg&riu=http%3a%2f%2fmeshworth.com%2fwp-content%2fuploads%2f2022%2f02%2fbernard-arnault-family.jpg&ehk=5iV7mmcSyxJ%2fP525ntSxxWOH7rXY%2bYkhEIRLU9vR00g%3d&risl=&pid=ImgRaw&r=0" alt="Bernard Arnault">
+            <h2>Bernard Arnault</h2>
+            <p>Details about Bernard Arnault...</p>
+        </div>
+    </div>
+    <div id="orgitoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('orgitoModal')">×</span>
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=6fe109d77e&attid=0.1&permmsgid=msg-f:1810522257455154743&th=192044668d8d8637&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ-Tjb5DoZvGQf-bUbmzQm7r2PB1PQ2kLUd0S2JSGmCIqXsyHg-oHHRrd2o0T8xGJ3U7Butrk5b5HA0kkPXYFHOFiCZSdg4efdJgFl0r1jC8ZMLQmIESrq7K6N4&disp=emb" alt="Orgito Perkola">
+            <h2>Orgito Perkola</h2>
+            <p>Details about Orgito Perkola...</p>
+        </div>
+    </div>
+    <div id="jeffModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('jeffModal')">×</span>
+            <img src="https://th.bing.com/th/id/OIP.4KR_BKf9jbbDBFDiQ5lGYgHaHa?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="Jeff Bezos">
+            <h2>Jeff Bezos</h2>
+            <p>Details about Jeff Bezos...</p>
+        </div>
+    </div>
+    <div id="billModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('billModal')">×</span>
+            <img src="https://th.bing.com/th/id/OIP.r_qgxD6rkQQ0RxyBlhXpAAAAAA?rs=1&pid=ImgDetMain" alt="Bill Gates">
+            <h2>Bill Gates</h2>
+            <p>Details about Bill Gates...</p>
+        </div>
+    </div>
+    <div id="warrenModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('warrenModal')">×</span>
+            <img src="https://pbs.twimg.com/profile_images/934907110621679616/v9NAVtws_400x400.jpg" alt="Warren Buffett">
+            <h2>Warren Buffett</h2>
+            <p>Details about Warren Buffett...</p>
+        </div>
+    </div>
+    <div id="larryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('larryModal')">×</span>
+            <img src="https://cv-images.clickhole.com/originals/j9uha2v5rtf0vbsicjzc.jpg" alt="Larry Page">
+            <h2>Larry Page</h2>
+            <p>Details about Larry Page...</p>
+        </div>
+    </div>
+    <div id="sergeyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sergeyModal')">×</span>
+            <img src="https://specials-images.forbesimg.com/imageserve/5ba418f34bbe6f79516f45ce/416x416.jpg?background=000000&cropX1=351&cropX2=3365&cropY1=11&cropY2=3025" alt="Sergey Brin">
+            <h2>Sergey Brin</h2>
+            <p>Details about Sergey Brin...</p>
+        </div>
+    </div>
+    <div id="markModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('markModal')">×</span>
+            <img src="https://th.bing.com/th/id/OIP.o2JvEgJpd_q2OwxgcnLktQAAAA?rs=1&pid=ImgDetMain" alt="Mark Zuckerberg" alt="Mark Zuckerberg">
+            <h2>Mark Zuckerberg</h2>
+            <p>Details about Mark Zuckerberg...</p>
+        </div>
+    </div>
+    <div id="steveModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('steveModal')">×</span>
+            <img src="https://netstorage-briefly.akamaized.net/images/c7e32316aecf3e29.jpg?imwidth=900" alt="Steve Ballmer">
+            <h2>Steve Ballmer</h2>
+            <p>Details about Steve Ballmer...</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    </script>
+</body>
+</html>
